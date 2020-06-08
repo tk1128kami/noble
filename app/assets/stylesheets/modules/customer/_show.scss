@@ -1,0 +1,30 @@
+.customer-show{
+  .customer-detail-box{
+    background-color: #d3d3d3;
+    .customer-detail{
+      padding: 5px;
+      display:inline-block;
+      vertical-align: top;
+      .customer-text{
+        border: 1px solid gray;
+        background-color:white;
+        width: 550px;
+        height: 120px;
+      }
+    }
+  }
+  img{
+    width: 180px;
+    height: 180px;
+    object-fit: cover;
+  }
+  .customer-items{
+    padding:10px;
+    .item-box{
+      display:inline-block;
+      width : 200px;
+      margin: 8px;
+      text-align:center;
+    }
+  }
+}

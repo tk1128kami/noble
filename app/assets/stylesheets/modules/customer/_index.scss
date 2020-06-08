@@ -1,0 +1,48 @@
+.customers-box{
+  text-align: center;
+  .customer-name{
+    width : 50px;
+  }
+  .t-line tr:nth-child(even) td {  
+    background-color: #EFEFEF;  
+  }
+  .t-line tr:nth-child(even) th {  
+    background-color: #EFEFEF;  
+  }
+  .t-line{
+    display:  block;
+  }
+  td{
+    width : 100%;
+    text-align: left;
+  }
+
+  th{
+    font-size : 20px;
+  }
+  .customer-deteil-box{
+    display : inline-block;
+    p {
+      font-weight: 800;
+      font-size : 18px;
+    }
+  }
+  .customer-items-box{
+    display : inline-block;
+    .item-box{
+      padding: 5px 5px 10px 5px;
+      display : inline-block;
+      text-align: center;
+      p {
+        margin : 3px 0px;
+      }
+      .item-image-box{
+        img{
+          width: 100px;
+          height: 100px;
+          object-fit: cover;
+        }
+      }
+    }
+  }
+}

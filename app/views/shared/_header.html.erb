@@ -1,0 +1,18 @@
+<div class="header-conteiner">
+  <div class="logo-content">
+    <a href="/"><h1>NOBLE</h1></a>
+  </div>
+  <div class="menu-content">
+    <ul class="menu-box">
+      <li>
+        <%= link_to( "商品一覧", items_path,{class: "header-menu"})%>
+      </li>
+      <li>
+        <%= link_to( "顧客追加", new_customer_path,{class: "header-menu"})%>
+      </li>
+      <li>
+        <%= link_to( "商品追加  ", new_item_path,{class: "header-menu"})%>
+      </li>
+    </ul>
+  </div>
+</div>

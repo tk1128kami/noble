@@ -1,0 +1,41 @@
+.customer-new-box{
+  h1{
+    text-align: center;
+  }
+  .customer-form-body{
+    text-align: center;
+  }
+  .customer-form-conteiner-1{
+    display : inline-block;
+    text-align : left;
+  }
+  .customer-form-conteiner-2{
+    display : inline-block;
+    vertical-align : top;
+    margin-left: 20px;
+    text-align : left;
+  }
+  img{
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+  }
+  .customer-form-box{
+    p{
+      margin:0px;
+    }
+    div{
+      input{
+        margin-left:15px;
+        width : 200px;
+        height: 30px;
+        font-size: 20px;
+      }
+      textarea{
+        margin-left:15px;
+        width : 400px;
+        height: 300px;
+      }
+    }
+  }
+}

@@ -1,0 +1,13 @@
+<div class="customers-box">
+  <h1 style="font-size:25px;, margin:20px;">顧客一覧</h1>
+  <table class="t-line">
+    <tr>
+      <th class="customer-name">顧客の名前</th>
+      <th>ご購入商品</th>
+    </tr>
+    <% @customers.each do |customer| %>
+      <%= render partial: "customer", locals: { customer: customer } %>
+    <% end %>
+  </table> 
+  <%= paginate(@customers)%>
+</div>

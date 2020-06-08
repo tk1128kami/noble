@@ -1,0 +1,28 @@
+.header-conteiner{
+  background-color : black;
+  position :relative;
+  .logo-content{
+    height: 80px;
+    line-height: 80px;
+    text-align: center;
+    h1 {
+      display: inline-block;
+      color : white;
+      margin : 0px;
+      vertical-align: middle;
+    }
+  }
+  .menu-content{
+    position: absolute;
+    top : 25px;
+    right : 30px;
+    li{
+      display : inline-block;
+      margin: 3px;
+      .header-menu{
+        color : white;
+        text-decoration: none;
+      }
+    }
+  }
+}

@@ -1,0 +1,11 @@
+<div class="item-index-box">
+  <h1 style="font-size:25px;, margin:20px;">商品一覧</h1>
+  <div class="items-box">
+    <table class="t-line">
+      <% @items.each do |item| %>
+        <%= render partial: "item", locals: { item: item } %>
+      <% end %>
+    </table> 
+  </div>
+  <%= paginate(@items)%>
+</div>

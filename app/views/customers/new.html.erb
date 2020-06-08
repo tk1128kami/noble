@@ -1,0 +1,101 @@
+<div class="customer-new-box">
+  <h1>新規顧客登録</h1>
+  <%= form_for(@customer) do |f| %>
+    <div class="customer-form-body">
+      <div class="customer-form-conteiner-1">
+        <div class="customer-form-box">
+          <div>
+            <p>
+              <%= f.label :name do %>
+                名前
+              <%end%>
+            </p>
+            <%= f.text_field :name %>
+          </div>
+          <div>
+            <p>
+              <%= f.label :name_kana do %>
+                ふりがな
+              <%end%>
+            </p>
+            <%= f.text_field :name_kana %>
+          </div>
+          <div>
+            <p>
+              <%= f.label :nickname do%>
+                ニックネーム
+              <%end%>
+            </p>
+            <%= f.text_field :nickname %>
+          </div>
+          <div>
+            <p>
+              <%= f.label :birthday do%>
+                誕生日
+              <%end%>
+            </p>
+            <%= f.date_field :birthday %>
+          </div>
+          <div>
+            <p>
+              <%= f.label :phone do%>
+                電話番号
+              <%end%>
+            </p>
+            <%= f.telephone_field	 :phone %>
+          </div>
+          <div>
+            <p>
+              <%= f.label :email %>
+            </p>
+            <%= f.email_field :email %>
+          </div>
+        </div>
+      </div>
+      <div class="customer-form-conteiner-2">
+        <div class="customer-form-box">
+          <div>
+            <p>
+              <%= f.label :text do%>
+                備考欄
+              <%end%>
+            </p>
+            <%= f.text_area :text %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <%# ここを複製@items[追加される度に+1する] %>
+    <%= f.fields_for :items, @items[0] do |item| %>
+      <div>
+        <%= item.label :name %>
+        <%= item.text_field :name %>
+      </div>
+      <div>
+        <%= item.label :price %>
+        <%= item.number_field :price %>
+      </div>
+      <div>
+        <%= item.label :image %>
+        <%= item.file_field :image %>
+      </div>
+      <div>
+        <%= item.label :text %>
+        <%= item.text_area :text%>
+      </div>
+    <% end %>
+    <%# ここまで %>
+    <div class="item-check-box">
+      <%= f.collection_check_boxes(:item_ids, @ItemsAll, :id, :name) do |item| %>
+        <%= item.label do%>
+          <div class="item-label">
+            <%= item.check_box%>
+            <%= item.object.name%>
+          <div>
+          <%= image_tag(item.object.image.url) %>
+        <%end%>
+      <%end%>
+    </div>
+    <%= f.submit '保存',data:{confirm:'保存していいですか？',disable_with:'処理中...'} %>
+  <% end %>
+</div>

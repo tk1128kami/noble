@@ -1,0 +1,29 @@
+<tr>
+  <td class="item-image-box">
+    <%=image_tag(item.image.url)%>
+  </td>
+  <td>
+    <div>
+      <span>商品名：</span><%=item.name%>
+    </div>
+    <div>
+      <span>商品価格：</span><%=item.price%>
+    </div>
+    <div class="item-text-box">
+      <%=item.text%>
+    </div>
+  </td>
+  <td>
+    <ul class="menu_list">
+      <li>
+        <%= link_to "詳細", "#", method: :get %>
+      </li>
+      <li>
+        <%= link_to '編集', "#", method: :get %>
+      </li>
+      <li>
+          <%= link_to '削除', "#", method: :delete %>
+      </li>
+    </ul>
+  </td>
+</tr>

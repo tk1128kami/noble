@@ -1,0 +1,48 @@
+<div class="customer-show">
+  <h1>
+    <%= @customer.name %>
+    <span style="font-size: 25px; margin-left:5px;">
+      様の詳細情報
+    </span>
+    <p style="margin-top:0px; font-size:14px;">
+      (<%= @customer.name_kana %>)
+    </p>
+  </h1>
+  <div class="customer-detail-box">
+    <div class="customer-detail">
+      <p>
+        <span>ニックネーム：</span><%= @customer.nickname %>
+      </p>
+      <p>
+        <span>誕生日：</span><%= @customer.birthday %>
+      </p>
+      <p>
+        <span>電話番号：</span><%= @customer.phone %>
+      </p>
+      <p>
+        <span>メールアドレス：</span><%= @customer.email %>
+      </p>
+    </div>
+    <div class="customer-detail">
+      <p style="margin-bottom:0px;">備考欄</p>
+      <div class="customer-text">
+        <%= @customer.text %>
+      </div>
+    </div>
+  </div>
+  <h2>ご購入商品</h2>
+  <div class="customer-items">
+    <% @customer.items.each do |item|%>
+      <div class="item-box">
+        <div class="item-image-box">
+          <%= image_tag(item.image.url) %>
+        </div>
+        <p style="margin-bottom:0px;"><%= item.name %></p>
+        <p style="margin-top:0px;"><span>¥</span><%= item.price %></p>
+      </div>
+    <% end %>
+  </div>
+ 
+
+  <%= link_to '編集', "/customers/#{@customer.id}/edit", method: :get %>
+</div>
