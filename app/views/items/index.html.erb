@@ -1,11 +1,24 @@
 <div class="item-index-box">
   <h1 style="font-size:25px;, margin:20px;">商品一覧</h1>
+  <div class="search-content">
+    <input class="item-search__query" name="keyword" placeholder="商品名で検索" type="text" value="">
+  </div>
   <div class="items-box">
-    <table class="t-line">
-      <% @items.each do |item| %>
-        <%= render partial: "item", locals: { item: item } %>
-      <% end %>
-    </table> 
+    <% @items.each do |item| %>
+      <div class="item-box">
+        <div class="item-image-box">
+          <%=image_tag(item.image.url)%>
+        </div>
+        <div class="item-detail-box">
+          <div>
+            <%=item.name%>
+          </div>
+          <div>
+            <span>¥</span><%=item.price%>
+          </div>
+        </div>
+      </div>
+    <% end %>
   </div>
   <%= paginate(@items)%>
 </div>

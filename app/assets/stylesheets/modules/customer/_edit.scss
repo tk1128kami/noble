@@ -1,0 +1,170 @@
+.customer-edit-box{
+  h1{
+    text-align: center;
+    margin : 50px 0px;
+  }
+  .customer-form-body{
+    text-align: center;
+    padding : 0 160px;
+    .customer-form-inner > div{
+      border-bottom : solid 1px rgb(173, 173, 173);
+      text-align : left;
+      .label-box{
+        display : inline-block;
+        width : 250px;
+        text-align : center;
+        border-bottom : solid 1px rgb(35, 143, 35);
+        p {
+          font-size : 18px;
+          font-weight : 600;
+          font-family: serif;
+        }
+      }
+      .textarea-label{
+        height : 190px;
+        p {
+          margin : 0px;
+          height : 190px;
+          line-height: 190px;
+          vertical-align :center;
+        }
+      }
+      input {
+        width : 350px;
+        margin-left : 80px;
+      }
+      input:focus{
+        box-shadow: 0px 5px 10px 0px rgba(0,0,0,0.4);
+        outline : solid 2px #666;
+      }
+      textarea {
+        width : 350px;
+        height : 150px;
+        margin-top : 20px;
+        margin-bottom : 20px;
+        margin-left : 80px;
+      }
+      textarea:focus{
+        box-shadow: 0px 5px 10px 0px rgba(0,0,0,0.4);
+        outline : solid 2px #666;
+      }
+    }
+  }
+  .items-field{
+    margin-top : 50px;
+    text-align: center;
+    .customer-items-checkbox{
+      text-align : left;
+      max-width : 1100px;
+      max-height : 550px;
+      overflow : scroll;
+      .item-box{
+        display : inline-block;
+        text-align : center;
+        margin : 10px 1.5%;
+        width : 16.5%;
+        height : 250px;
+        .item-name-box{
+
+        }
+        .item-image-box{
+          img{
+            width : 180px;
+            height: 200px;
+            object-fit: cover;
+          }
+        }
+        .item-price-box{
+
+        }
+      }
+    }
+    .item-field{
+      padding : 0 160px;
+    
+      .nested-fields{
+        position : relative;
+        margin-top : 70px;
+      }
+      .nested-fields > div{
+        border-bottom : solid 1px rgb(173, 173, 173);
+        text-align : left;
+        .label-box{
+          display : inline-block;
+          width : 250px;
+          text-align : center;
+          border-bottom : solid 1px rgb(143, 35, 35);
+          p {
+            font-size : 18px;
+            font-weight : 600;
+            font-family: serif;
+          }
+        }
+        .textarea-label{
+          height : 190px;
+          p {
+            margin : 0px;
+            height : 190px;
+            line-height: 190px;
+            vertical-align :center;
+          }
+        }
+        input {
+          width : 350px;
+          margin-left : 80px;
+        }
+        input:focus{
+          box-shadow: 0px 5px 10px 0px rgba(0,0,0,0.4);
+          outline : solid 2px #666;
+        }
+        textarea {
+          width : 350px;
+          height : 150px;
+          margin-top : 20px;
+          margin-bottom : 20px;
+          margin-left : 80px;
+        }
+        textarea:focus{
+          box-shadow: 0px 5px 10px 0px rgba(0,0,0,0.4);
+          outline : solid 2px #666;
+        }
+      }
+    }
+    .delete-button{
+      a{
+        color : white;
+        padding : 8px;
+        background-color : black;
+        display : inline-block;
+        position : absolute;
+        right : 200px;
+        top: 0px;
+        font-size: 12px;
+      }
+    }
+    .add-button{
+      margin-top : 20px;
+      a{
+        color : white;
+        padding : 8px;
+        background-color : black;
+        display : inline-block;
+        font-size: 15px;
+      }
+    }
+    #links{
+      border: none;
+    }
+  }
+  .create-button{
+    position : relative;
+    text-align :center;
+    input {
+      color : white;
+      padding : 8px 100px;
+      background-color : black;
+      display : inline-block;
+      font-size: 18px;
+    }
+  }
+}

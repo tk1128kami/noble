@@ -13,9 +13,3 @@
  *= require_tree .
  *= require_self
  */
-
- @import "modules/header";
- @import "modules/customer/index";
- @import "modules/customer/show";
- @import "modules/layout";
- @import "modules/item/index";

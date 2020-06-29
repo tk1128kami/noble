@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
 
   def index
-    @items = Item.all.page(params[:page]).per(5).order("created_at DESC")
+    @items = Item.all.page(params[:page]).per(30).order("created_at DESC")
   end
   def new
     @item = Item.new
@@ -22,6 +22,14 @@ class ItemsController < ApplicationController
 
   def show
     @item = Item.find(params[:id])
+  end
+  
+  def search
+    @items = Item.where('name LIKE(?)', "%#{params[:keyword]}%").limit(20)
+    respond_to do |format|
+      format.html
+      format.json
+    end  
   end
 
   private

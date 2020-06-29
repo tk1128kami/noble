@@ -1,54 +1,125 @@
-<%= form_for(@customer) do |f| %>
-  <div>
-    <%= f.label :name %>
-    <%= f.text_field :name %>
-  </div>
-  <div>
-    <%= f.label :name_kana %>
-    <%= f.text_field :name_kana %>
-  </div>
-  <div>
-    <%= f.label :nickname %>
-    <%= f.text_field :nickname %>
-  </div>
-  <div>
-    <%= f.label :birthday %>
-    <%= f.date_field :birthday %>
-  </div>
-  <div>
-    <%= f.label :phone %>
-    <%= f.telephone_field	 :phone %>
-  </div>
-  <div>
-    <%= f.label :email %>
-    <%= f.email_field :email %>
-  </div>
-  <div>
-    <%= f.label :text %>
-    <%= f.text_area :text %>
-  </div>
-  <%= f.fields_for :items, @items[0] do |item| %>
-    <div>
-      <%= item.label :name %>
-      <%= item.text_field :name %>
+<div class="customer-edit-box">
+  <h1>顧客編集ページ</h1>
+  <%= form_for(@customer) do |f| %>
+    <div class="customer-form-body">
+      <div class="customer-form-inner">
+        <div>
+          <div class="label-box">
+            <p>
+              <%= f.label :name do %>
+                お名前
+              <%end%>
+            </p>
+          </div>
+          <%= f.text_field :name, placeholder: "例　山田太郎"%>
+        </div>
+        <div>
+          <div class="label-box">
+            <p>
+              <%= f.label :name_kana do %>
+                ふりがな
+              <%end%>
+            </p>
+          </div>
+          <%= f.text_field :name_kana, placeholder: "例　やまだたろう" %>
+        </div>
+        <div>
+          <div class="label-box">
+            <p>
+              <%= f.label :nickname do%>
+                ニックネーム
+              <%end%>
+            </p>
+          </div>
+          <%= f.text_field :nickname, placeholder: "例　やまちゃん" %>
+        </div>
+        <div>
+          <div class="label-box">
+            <p>
+              <%= f.label :birthday do%>
+                誕生日
+              <%end%>
+            </p>
+          </div>
+          <%= f.date_field :birthday %>
+        </div>
+        <div>
+          <div class="label-box">
+            <p>
+              <%= f.label :phone do%>
+                電話番号
+              <%end%>
+            </p>
+          </div>
+          <%= f.telephone_field	:phone, placeholder: "例　08012345678"%>
+        </div>
+        <div>
+          <div class="label-box">
+            <p>
+              <%= f.label :email %>
+            </p>
+          </div>
+          <%= f.email_field :email, placeholder: "例　yamada@ezweb.ne.jp" %>
+        </div>
+        <div>
+          <div class="label-box textarea-label">
+            <p>
+              <%= f.label :text do%>
+                備考欄
+              <%end%>
+            </p>
+          </div>
+          <%= f.text_area :text, placeholder: "お客様の特徴など自由にご記入下さい。"%>
+        </div>
+      </div>
     </div>
-    <div>
-      <%= item.label :price %>
-      <%= item.number_field :price %>
+    <div class="items-field">
+      <h1>顧客が購入した商品</h1>
+      <div class="customer-items-checkbox">
+        <%= f.collection_check_boxes :item_ids, @CsutomerItems, :id, :name do |item|%>
+          <div class="item-box">
+            <div class="item-name-box">
+              <%= item.check_box %>
+              <%= item.object.name%>
+            </div>
+            <div class="item-image-box">
+              <%= image_tag(item.object.image.url) %>
+            </div>
+            <div class="item-price-box">
+              <span>¥</span><%= item.object.price%>
+            </div>
+          </div>
+        <%end %>
+      </div>
+      <h1>購入商品登録</h1>
+      <div class="item-field">
+        <%= f.fields_for :items, @NewItems do |item| %>
+          <%= render 'item_fields', f: item %>
+        <% end %>
+        <div id="links", class="add-button">
+          <%= link_to_add_association '商品を追加',f, :items %>
+        </div>
+      </div>
+      <h1>他の顧客が購入した商品</h1>
+      <div class="customer-items-checkbox">
+        <%= f.collection_check_boxes :item_ids, @CreatedItems, :id, :name do |item|%>
+          <div class="item-box">
+            <div class="item-name-box">
+              <%= item.check_box %>
+              <%= item.object.name%>
+            </div>
+            <div class="item-image-box">
+              <%= image_tag(item.object.image.url) %>
+            </div>
+            <div class="item-price-box">
+              <span>¥</span><%= item.object.price%>
+            </div>
+          </div>
+        <%end %>
+      </div>
     </div>
-    <div>
-      <%= item.label :image %>
-      <%= item.file_field :image %>
-    </div>
-    <div>
-      <%= item.label :text %>
-      <%= item.text_area :text%>
+    <div class="create-button">
+      <%= f.submit '保存'%>
     </div>
   <% end %>
-  <%= f.collection_check_boxes :item_ids, @ItemsAll, :id, :name do |item|%>
-    <%= item.check_box %>
-    <%= item.object.name%>
-    <%= image_tag(item.object.image.url) %>
-  <%end %>
-  <%= f.submit '保存',data:{confirm:'保存していいですか？',disable_with:'処理中...'} %>
-<% end %>
+</div>

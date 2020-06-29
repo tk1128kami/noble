@@ -1,13 +1,42 @@
 <div class="customers-box">
   <h1 style="font-size:25px;, margin:20px;">顧客一覧</h1>
-  <table class="t-line">
-    <tr>
-      <th class="customer-name">顧客の名前</th>
-      <th>ご購入商品</th>
-    </tr>
-    <% @customers.each do |customer| %>
-      <%= render partial: "customer", locals: { customer: customer } %>
-    <% end %>
-  </table> 
+  <div class="search-content">
+    <input class="customer-search__query" name="keyword" placeholder="顧客名で検索" type="text" value="">
+  </div>
+  <div class="customers-table">
+    <table class="t-line">
+      <tr class="customer-table-tittle-content">
+        <th class="customer-name-tittle">顧客の名前</th>
+        <th class="customer-item-tittle">ご購入商品</th>
+      </tr>
+        <% @customers.each do |customer| %>
+          <tr>
+            <th>
+              <div class="customer-deteil-box">
+                <%= link_to(customer_path(customer.id), method: :get) do %>       
+                  <p>
+                    <%= customer.name %>
+                  </p>    
+                <% end %>
+              </div>
+            </th>
+            <td>
+              <div class="customer-items-box">
+                <% customer.items.each do |item|%>
+                  <div class="item-box">
+                    <%= link_to(item_path(item.id), method: :get) do %>
+                      <p><%= item.name %></p>
+                    <% end %>
+                    <div class="item-image-box">
+                      <%= image_tag(item.image.url) %>
+                    </div>
+                  </div>
+                <% end %>
+              </div>
+            </td>
+          </tr>
+        <% end %>
+    </table>
+  </div>
   <%= paginate(@customers)%>
 </div>

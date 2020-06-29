@@ -1,0 +1,54 @@
+<div class="nested-fields">
+  <h2 class="item-create-tittle"></h2>
+  <script type="text/javascript">
+    $(".nested-fields h2").each(function(index, element){
+      var count = index + 1;
+      var html = `商品登録`+ `${count}`;
+      $(this).empty();
+      element.append(html);
+    })
+  </script>
+  <div>
+    <div class="label-box">
+      <p>
+        <%= f.label :name do %>
+          商品名
+        <% end %>
+      </p>
+    </div>
+    <%= f.text_field :name, placeholder: "例　ゴールドネックレス" %>
+  </div>
+  <div>
+    <div class="label-box">
+      <p>
+        <%= f.label :price do %>
+          商品価格
+        <% end %>
+      </p>
+    </div>
+    <%= f.number_field :price , placeholder: "例　20000"%>
+  </div>
+  <div>
+    <div class="label-box">
+      <p>
+        <%= f.label :image do %>
+          商品写真
+        <% end %>
+      </p>
+    </div>
+    <%= f.file_field :image %>
+  </div>
+  <div>
+    <div class="label-box textarea-label">
+      <p>
+        <%= f.label :text do %>
+          商品説明
+        <% end %>
+      </p>
+    </div>
+    <%= f.text_area :text , placeholder: "例　商品の情報を自由に記載ください。"%>
+  </div>
+  <div id="links", class="delete-button">
+    <%= link_to_remove_association "この商品を削除", f %>
+  </div>
+</div>
