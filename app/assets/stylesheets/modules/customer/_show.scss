@@ -1,15 +1,60 @@
 .customer-show{
+  h1{
+    text-align :center;
+    span{
+      font-size: 25px;
+    }
+  }
+  h2{
+    text-align : center;
+    margin-top : 50px;
+  }
   .customer-detail-box{
-    background-color: #d3d3d3;
-    .customer-detail{
-      padding: 5px;
-      display:inline-block;
-      vertical-align: top;
-      .customer-text{
-        border: 1px solid gray;
-        background-color:white;
-        width: 550px;
-        height: 120px;
+    text-align: center;
+    padding : 0 160px;
+    .customer-detail > div{
+      border-bottom : solid 1px rgb(173, 173, 173);
+      text-align : left;
+      .label-box{
+        display : inline-block;
+        width : 250px;
+        text-align : center;
+        border-bottom : solid 1px rgb(35, 143, 35);
+        p {
+          font-size : 18px;
+          font-weight : 600;
+          font-family: serif;
+        }
+      }
+      .customer-detail-text{
+        display: inline-block;
+        p{
+          margin-left : 50px;
+          font-size : 18px;
+          
+        }
+      }
+      .textarea-label{
+        height : 190px;
+        p {
+          margin : 0px;
+          height : 190px;
+          line-height: 190px;
+          vertical-align :center;
+          display : inline-block;
+        }
+      }
+      .customer-detail-textarea{
+        margin-left : 50px;
+        display : inline-block;
+        p{
+          margin : 0px;
+          height : 188px;
+          max-height : 188px;
+          line-height: 188px;
+          vertical-align :center;
+          display : inline-block;
+        }
       }
     }
   }
@@ -27,4 +72,18 @@
       text-align:center;
     }
   }
+  .button-box{
+    text-align : center;
+    margin : 50px;
+  a{
+    display : inline-block;
+    color : white;
+    background-color : black;
+    padding : 10px 100px;
+    letter-spacing: 5px;
+    margin : 0px 30px;
+    font-family: serif;
+  }
+  }
+  
 }

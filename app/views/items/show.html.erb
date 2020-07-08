@@ -1,6 +1,32 @@
-<%= @item.name %>
-<%= image_tag(@item.image.url) %>
-<%= @item.price %>
-<%= @item.text %>
-
-<%= link_to '編集', "/items/#{@item.id}/edit", method: :get %>
+<div class="items-show-content">
+  <div class="item-detail-content">
+    <h1><%= @item.name %></h1>
+    <div class="item-detail-inner">
+      <div class="image-content">
+        <%= image_tag(@item.image.url) %>
+      </div>
+      <div class="item-detail-text">
+        <div>
+          <div class="label-box">
+            <p>金額</p>
+          </div>
+          <div class="price-text">
+            <p><%= @item.price %><span>円</span></p>
+          </div>
+        </div>
+        <div>
+          <div class="textarea-label label-box">
+            <p>商品説明</p>
+          </div>
+          <div class="textarea-box">
+            <p><%= @item.text %></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="button-content">
+    <%= link_to '編集', "/items/#{@item.id}/edit", method: :get %>
+    <%= link_to '削除', "/items/#{@item.id}", method: :delete, data: { confirm: "【確認】このお客情報を削除してもよろしいですか？" } %>
+  </div>
+</div>

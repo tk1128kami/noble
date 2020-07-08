@@ -12,6 +12,7 @@ class CustomersController < ApplicationController
 
   def create
     Customer.create(customer_params)
+ 
   end
 
   def edit
@@ -30,11 +31,38 @@ class CustomersController < ApplicationController
   def update
     customer = Customer.find(params[:id])
     customer.update(customer_update_params)
+    if customer.save
+      redirect_to controller: :customers, action: :show, id: customer.id
+    else
+      @customer = customer
+      customer = Customer.find(customer[:id])
+      @NewItems = []
+      @CsutomerItems = customer.items
+      @customer.items.each do |item|
+        if item[:id] == nil
+          @NewItems.push(item)
+        end
+      end
+      @CsutomerItems.each do |item|
+        if item[:id] == nil
+          @CsutomerItems.delete(item)
+        end
+      end
+      @CreatedItems = []
+      allitems = Item.all
+      allitems.each do |item|
+        unless item.customers.where(id: @customer[:id]).exists?
+          @CreatedItems.push(item)
+        end
+      end
+      render "edit"
+    end
   end
 
   def destroy
     customer = Customer.find(params[:id])
     customer.destroy
+    redirect_to controller: :customers, action: :index
   end
 
   def show
@@ -47,7 +75,7 @@ class CustomersController < ApplicationController
     respond_to do |format|
     format.html
     format.json
-    end  
+    end
   end
 
   private
@@ -56,7 +84,7 @@ class CustomersController < ApplicationController
   end
 
   def customer_update_params
-    params.require(:customer).permit(:name,:name_kana,:nickname,:birthday,:phone,:email,:text, items_attributes: [:name,:price,:image,:text], item_ids:[])
+    params.require(:customer).permit(:name,:name_kana,:nickname,:birthday,:phone,:email,:text, item_ids:[], items_attributes: [:name,:price,:image,:text])
   end
 
 end

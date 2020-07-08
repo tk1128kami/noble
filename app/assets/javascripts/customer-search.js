@@ -8,7 +8,7 @@ $(function() {
     function appendItem(item) {
       var ItemHtml = `<div class="item-box">
                         <a href="items/${item.id}">
-                          <p>${item.name}</p>
+                          <p><nobr>${item.name}</nobr></p>
                         </a>
                         <div class="item-image-box">
                         <img src="${item.image.url}">
@@ -52,7 +52,6 @@ $(function() {
       dataType: 'json'
       })
       .done(function(customers) {
-        
         $('.customers-table').empty();
         CustomersHtml = "";
         if (customers.length !== 0) {

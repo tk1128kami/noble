@@ -25,7 +25,7 @@
                 <% customer.items.each do |item|%>
                   <div class="item-box">
                     <%= link_to(item_path(item.id), method: :get) do %>
-                      <p><%= item.name %></p>
+                      <p><nobr><%= item.name %></nobr></p>
                     <% end %>
                     <div class="item-image-box">
                       <%= image_tag(item.image.url) %>

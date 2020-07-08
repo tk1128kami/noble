@@ -9,7 +9,7 @@ $(function(){
                   </div>
                   <div class="item-detail-box">
                     <div>
-                      ${item.name}
+                      <nobr>${item.name}</nobr>
                     </div>
                     <div>
                       <span>¥</span>${item.price}
